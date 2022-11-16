@@ -21,10 +21,10 @@ const Movies = () => {
       <h1> Disney Movies! </h1>
       <div className={styles.container}>
         {movieList.map((movie) => (
-          <>
+          <div>
             <p key={movie.id}>{movie.title}</p>
             {/* <p>{new Date(movie['Release date (datetime)']).getFullYear()}</p> */}
-          </>
+          </div>
         ))}
       </div>
     </>
