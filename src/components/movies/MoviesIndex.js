@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from './Movies.module.css';
 
 const Movies = () => {
   const [movieList, setMovieList] = useState([]);
@@ -10,16 +11,23 @@ const Movies = () => {
       .then((data) => setMovieList(data))
       .catch((error) => console.error(error));
   };
+
   useEffect(() => {
     fetchMovies();
   }, []);
 
   return (
-    <section>
-      {movieList.map((movie) => (
-        <p key={movie.id}> {movie.title}</p>
-      ))}
-    </section>
+    <>
+      <h1> Disney Movies! </h1>
+      <div className={styles.container}>
+        {movieList.map((movie) => (
+          <>
+            <p key={movie.id}>{movie.title}</p>
+            {/* <p>{new Date(movie['Release date (datetime)']).getFullYear()}</p> */}
+          </>
+        ))}
+      </div>
+    </>
   );
 };
 
