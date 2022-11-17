@@ -1,3 +1,5 @@
+import InputSearch from 'components/InpupSearch/InputSearch';
+import { getMovies } from 'lib/api';
 import React, { useEffect, useState } from 'react';
 import styles from './Movies.module.css';
 
@@ -6,10 +8,7 @@ const Movies = () => {
   console.log(movieList);
 
   const fetchMovies = () => {
-    fetch('https://express-api-starter-3bvpqy4hiq-lz.a.run.app/movies')
-      .then((res) => res.json())
-      .then((data) => setMovieList(data))
-      .catch((error) => console.error(error));
+    getMovies().then((data) => setMovieList(data));
   };
 
   useEffect(() => {
@@ -17,17 +16,19 @@ const Movies = () => {
   }, []);
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <h1> Disney Movies! </h1>
+      <p className={styles.p}> Search for title:</p>
+      <InputSearch setMovieList={setMovieList} />
       <div className={styles.container}>
         {movieList.map((movie) => (
-          <div>
+          <div className={styles.movie}>
             <p key={movie.id}>{movie.title}</p>
             {/* <p>{new Date(movie['Release date (datetime)']).getFullYear()}</p> */}
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

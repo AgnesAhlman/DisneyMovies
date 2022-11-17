@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
-main {
-  padding: 2rem;
+::-webkit-scrollbar {
+  width: 0;
+}
+
+h1 {
+  color: white;
 }
