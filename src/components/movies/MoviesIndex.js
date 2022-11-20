@@ -8,7 +8,9 @@ const Movies = () => {
   console.log(movieList);
 
   const fetchMovies = () => {
-    getMovies().then((data) => setMovieList(data));
+    getMovies().then((data) => {
+      setMovieList(data);
+    });
   };
 
   useEffect(() => {
@@ -24,7 +26,6 @@ const Movies = () => {
         {movieList.map((movie) => (
           <div className={styles.movie}>
             <p key={movie.id}>{movie.title}</p>
-            {/* <p>{new Date(movie['Release date (datetime)']).getFullYear()}</p> */}
           </div>
         ))}
       </div>

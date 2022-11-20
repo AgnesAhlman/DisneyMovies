@@ -14,8 +14,6 @@ export const getMovies = () => {
 // Fetch Movie By Title
 
 export const getMoviesByTitle = (title) => {
-  console.log('title', title);
-
   return fetch(`${baseUrl}/movies?&title=${title}`)
     .then((res) => res.json())
     .then((data) => {
@@ -28,8 +26,6 @@ export const getMoviesByTitle = (title) => {
 // Fetch Movie By Year
 
 export const getMoviesByYear = (year) => {
-  console.log('title', year);
-
   return fetch(`${baseUrl}/movies?&year=${year}`)
     .then((res) => res.json())
     .then((data) => {
